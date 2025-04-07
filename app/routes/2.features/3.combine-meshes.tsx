@@ -1,12 +1,7 @@
-import SceneComponent from "babylonjs-hook";
 import {
   ArcRotateCamera,
   Color3,
-  CreateAudioEngineAsync,
-  CreateStreamingSoundAsync,
-  FreeCamera,
   HemisphericLight,
-  ImportMeshAsync,
   Mesh,
   MeshBuilder,
   Scene,
@@ -17,6 +12,7 @@ import {
   Vector4,
 } from "@babylonjs/core";
 import "@babylonjs/loaders/glTF/2.0";
+import SceneComponent from "babylonjs-hook";
 // import "@babylonjs/core/Debug/debugLayer";
 import { Inspector } from "@babylonjs/inspector";
 // import "@babylonjs/inspector";
@@ -82,21 +78,31 @@ const buildHouse = (width: number) => {
   const box = buildBox(width);
   const roof = buildRoof(width);
 
-  return Mesh.MergeMeshes([box, roof], true, false, undefined, false, true)!;
+  return Mesh.MergeMeshes(
+    width === 1 ? [box, roof] : [roof, box],
+    true,
+    false,
+    new Mesh("merge" + width),
+    false,
+    true
+  )!;
 };
 /******Build Functions***********/
 const buildDwellings = () => {
   const ground = buildGround();
-
-  const detached_house = buildHouse(1);
-  detached_house.rotation.y = -Math.PI / 16;
-  detached_house.position.x = -6.8;
-  detached_house.position.z = 2.5;
-
   const semi_house = buildHouse(2);
+  semi_house.name = "semi_house";
+  semi_house.material!.name = "semi_house_mat";
   semi_house.rotation.y = -Math.PI / 16;
   semi_house.position.x = -4.5;
   semi_house.position.z = 3;
+
+  const detached_house = buildHouse(1);
+  detached_house.name = "detached_house";
+  detached_house.material!.name = "detached_house_mat";
+  detached_house.rotation.y = -Math.PI / 16;
+  detached_house.position.x = -6.8;
+  detached_house.position.z = 2.5;
 
   const places = []; //each entry is an array [house type, rotation, x, z]
   places.push([1, -Math.PI / 16, -6.8, 2.5]);

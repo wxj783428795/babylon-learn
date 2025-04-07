@@ -1,27 +1,17 @@
-import React from "react";
-import SceneComponent from "babylonjs-hook";
 import {
   ArcRotateCamera,
-  Color3,
-  CreateAudioEngineAsync,
-  CreateStreamingSoundAsync,
-  FreeCamera,
   HemisphericLight,
   ImportMeshAsync,
-  LoadSceneAsync,
-  Mesh,
-  MeshBuilder,
   Scene,
-  StandardMaterial,
-  Texture,
   Tools,
   Vector3,
-  Vector4,
 } from "@babylonjs/core";
+import { Inspector } from "@babylonjs/inspector";
 import "@babylonjs/loaders/glTF/2.0";
+import SceneComponent from "babylonjs-hook";
 const VillageAnimation = () => {
   const onSceneReady = (scene: Scene) => {
-    // Inspector.Show(scene, {});
+    Inspector.Show(scene, {});
 
     var camera = new ArcRotateCamera(
       "camera",
