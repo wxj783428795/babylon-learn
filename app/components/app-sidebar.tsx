@@ -51,6 +51,24 @@ const data: NavData = {
       ],
     },
     {
+      title:"Features",
+      url: "",
+      items: [
+        {
+          title: "first import",
+          url: "/first-import",
+        },
+        {
+          title: "build a village",
+          url: "/build-a-village",
+        },
+        {
+          title: "combine-meshed",
+          url: "/combine-meshes",
+        },
+      ]
+    },
+    {
       title: "基础动画",
       url: "/basic-animation",
     },

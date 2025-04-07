@@ -29,7 +29,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         {/* <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.js"></script> */}
+        <script src="https://cdn.babylonjs.com/babylon.js"></script>
         <script src="https://assets.babylonjs.com/generated/Assets.js"></script>
+        <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.js"></script>
         <Meta />
         <Links />
       </head>

@@ -10,6 +10,18 @@ export default [
         "first-creation",
         "routes/1.the-very-first-step/1.first-creation.tsx"
       ),
+      route(
+        "first-import",
+        "routes/2.features/1.first-import-of-model.tsx"
+      ),
+      route(
+        "build-a-village",
+        "routes/2.features/2.build-a-village.tsx"
+      ),
+      route(
+        "combine-meshes",
+        "routes/2.features/3.combine-meshes.tsx"
+      ),
       route("basic-animation", "routes/basic-animation.tsx"),
       route("material-texture", "routes/material-texture.tsx"),
       route("light-shadow", "routes/light-shadow.tsx"),
