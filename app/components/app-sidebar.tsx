@@ -66,6 +66,10 @@ const data: NavData = {
           title: "combine-meshed",
           url: "/combine-meshes",
         },
+        {
+          title: "village-animation",
+          url: "/village-animation",
+        },
       ]
     },
     {

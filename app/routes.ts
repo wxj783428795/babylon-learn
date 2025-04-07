@@ -22,6 +22,10 @@ export default [
         "combine-meshes",
         "routes/2.features/3.combine-meshes.tsx"
       ),
+      route(
+        "village-animation",
+        "routes/2.features/4.village-animation.tsx"
+      ),
       route("basic-animation", "routes/basic-animation.tsx"),
       route("material-texture", "routes/material-texture.tsx"),
       route("light-shadow", "routes/light-shadow.tsx"),

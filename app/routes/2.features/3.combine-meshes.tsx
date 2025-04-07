@@ -17,6 +17,10 @@ import {
   Vector4,
 } from "@babylonjs/core";
 import "@babylonjs/loaders/glTF/2.0";
+// import "@babylonjs/core/Debug/debugLayer";
+import { Inspector } from "@babylonjs/inspector";
+// import "@babylonjs/inspector";
+// import { Inspector } from "@babylonjs/inspector";
 
 const buildGround = () => {
   const ground = MeshBuilder.CreateGround("ground", {
@@ -49,15 +53,11 @@ const buildBox = (width: number) => {
             new Vector4(0.75, 0, 1, 1),
           ],
   });
-  const boxMat = new StandardMaterial("boxMat");
+  const boxMat = new StandardMaterial("boxMat" + width);
   if (width == 2) {
-    boxMat.diffuseTexture = new Texture(
-      "https://assets.babylonjs.com/environments/semihouse.png"
-    );
+    boxMat.diffuseTexture = new Texture("/textures/semihouse.png");
   } else {
-    boxMat.diffuseTexture = new Texture(
-      "https://assets.babylonjs.com/environments/cubehouse.png"
-    );
+    boxMat.diffuseTexture = new Texture("/textures/cubehouse.png");
   }
   box.material = boxMat;
   box.position.y = 0.5;
@@ -73,7 +73,7 @@ const buildRoof = (width: number) => {
   roof.scaling.x = 0.75;
   roof.rotation.z = Math.PI / 2;
   roof.position.y = 1.22;
-  const roofMat = new StandardMaterial("roofMat");
+  const roofMat = new StandardMaterial("roofMat" + width);
   roofMat.diffuseTexture = new Texture("/textures/roof.jpg");
   roof.material = roofMat;
   return roof;
@@ -132,6 +132,8 @@ const buildDwellings = () => {
 };
 const CombineMeshes = () => {
   const onSceneReady = (scene: Scene) => {
+    Inspector.Show(scene, {});
+
     var camera = new ArcRotateCamera(
       "camera",
       Tools.ToRadians(45),
