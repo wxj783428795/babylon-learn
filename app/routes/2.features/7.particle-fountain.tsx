@@ -1,24 +1,14 @@
 import {
-  Animation,
   ArcRotateCamera,
-  Axis,
   HemisphericLight,
   ImportMeshAsync,
-  Mesh,
-  MeshBuilder,
   Scene,
-  Space,
-  Sprite,
-  SpriteManager,
-  StandardMaterial,
-  Texture,
   Tools,
   Vector3,
 } from "@babylonjs/core";
+import { Inspector } from "@babylonjs/inspector";
 import "@babylonjs/loaders/glTF/2.0";
 import SceneComponent from "babylonjs-hook";
-import { SkyMaterial } from "@babylonjs/materials";
-import { Inspector } from "@babylonjs/inspector";
 
 const ParticleFountain = () => {
   const onSceneReady = (scene: Scene) => {
@@ -38,6 +28,9 @@ const ParticleFountain = () => {
     light.intensity = 1;
 
     ImportMeshAsync("/scenes/2.better-village.babylon", scene).then((res) => {
+      console.log("res", res);
+    });
+    ImportMeshAsync("/scenes/xiaogu.glb", scene).then((res) => {
       console.log("res", res);
     });
   };
