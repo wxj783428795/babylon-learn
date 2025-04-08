@@ -26,6 +26,18 @@ export default [
         "village-animation",
         "routes/2.features/4.village-animation.tsx"
       ),
+      route(
+        "car-animation",
+        "routes/2.features/5.car-animation.tsx"
+      ),
+      route(
+        "better-environment",
+        "routes/2.features/6.better-environment.tsx"
+      ),
+      route(
+        "particle-fountain",
+        "routes/2.features/7.particle-fountain.tsx"
+      ),
       route("basic-animation", "routes/basic-animation.tsx"),
       route("material-texture", "routes/material-texture.tsx"),
       route("light-shadow", "routes/light-shadow.tsx"),

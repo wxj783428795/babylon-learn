@@ -77,12 +77,14 @@ const buildRoof = (width: number) => {
 const buildHouse = (width: number) => {
   const box = buildBox(width);
   const roof = buildRoof(width);
+  
+  const targetMesh = new Mesh("merge" + width);
 
   return Mesh.MergeMeshes(
-    width === 1 ? [box, roof] : [roof, box],
+     [roof, box],
     true,
     false,
-    new Mesh("merge" + width),
+    targetMesh,
     false,
     true
   )!;
@@ -93,6 +95,8 @@ const buildDwellings = () => {
   const semi_house = buildHouse(2);
   semi_house.name = "semi_house";
   semi_house.material!.name = "semi_house_mat";
+  semi_house.material!.id = "semi_house_mat";
+  // 必须设置id，否则 combine 的材质的 id 会是相同的，导致detached_house获取不到对应的材质
   semi_house.rotation.y = -Math.PI / 16;
   semi_house.position.x = -4.5;
   semi_house.position.z = 3;
@@ -100,6 +104,7 @@ const buildDwellings = () => {
   const detached_house = buildHouse(1);
   detached_house.name = "detached_house";
   detached_house.material!.name = "detached_house_mat";
+  detached_house.material!.id = "detached_house_mat";
   detached_house.rotation.y = -Math.PI / 16;
   detached_house.position.x = -6.8;
   detached_house.position.z = 2.5;
