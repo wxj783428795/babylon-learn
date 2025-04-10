@@ -128,8 +128,14 @@ const BetterEnvironment = () => {
       scene.beginAnimation(wheelLB, 0, 30, true);
       scene.beginAnimation(wheelLF, 0, 30, true);
     });
-    scene.metadata = {};
-    scene.metadata.spriteManagers = [];
+    const rootMesh = MeshBuilder.CreateBox(
+      "metadataMesh",
+      { width: 0.01, height: 0.01, depth: 0.01 },
+      scene
+    );
+    rootMesh.position.y = -10000;
+    rootMesh.metadata = {};
+    rootMesh.metadata.spriteManagers = [];
     let obj: any = {};
     obj.name = "spriteManagers";
     obj.texture = "/textures/palm.png";
@@ -138,7 +144,7 @@ const BetterEnvironment = () => {
     obj.height = 1024;
     obj.name = "tree";
     obj.sprites = [];
-    scene.metadata.spriteManagers.push(obj);
+    rootMesh.metadata.spriteManagers.push(obj);
     const spriteManagerTrees = new SpriteManager(
       "treesManager",
       "/textures/palm.png" /* url to sprite */,

@@ -5,6 +5,7 @@ export default [
     "components/Layout.tsx",
     [
       route("/", "routes/home.tsx"),
+      route("model-builder", "routes/model-builder/model-builder.tsx"),
       route("basic-scene", "routes/basic-scene.tsx"),
       route(
         "first-creation",

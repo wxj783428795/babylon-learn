@@ -41,6 +41,10 @@ const data: NavData = {
       items: [],
     },
     {
+      title: "模型构造器",
+      url: "/model-builder",
+    },
+    {
       title: "The Very First Step",
       url: "/basic-scene",
       items: [
