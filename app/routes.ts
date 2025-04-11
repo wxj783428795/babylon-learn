@@ -39,6 +39,14 @@ export default [
         "particle-fountain",
         "routes/2.features/7.particle-fountain.tsx"
       ),
+      route(
+        "design-an-animation",
+        "routes/3.deep-dive/3.1.animation/3.1.1.design-an-animation.tsx"
+      ),
+      route(
+        "sequencing-animations",
+        "routes/3.deep-dive/3.1.animation/3.1.2.sequencing-animations.tsx"
+      ),
       route("basic-animation", "routes/basic-animation.tsx"),
       route("material-texture", "routes/material-texture.tsx"),
       route("light-shadow", "routes/light-shadow.tsx"),

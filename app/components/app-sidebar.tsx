@@ -27,6 +27,7 @@ interface NavSubItem {
   title: string;
   url: string;
   isActive?: boolean;
+  items?: NavSubItem[];
 }
 
 interface NavData {
@@ -89,6 +90,26 @@ const data: NavData = {
       ],
     },
     {
+      title: "Deep Dive",
+      url: "",
+      items: [
+        {
+          title: "Animation",
+          url: "",
+          items: [
+            {
+              title: "Design-An-Animation",
+              url: "/design-an-animation",
+            },
+            {
+              title: "Sequencing-Animations",
+              url: "/sequencing-animations",
+            },
+          ],
+        },
+      ],
+    },
+    {
       title: "基础动画",
       url: "/basic-animation",
     },
@@ -106,7 +127,6 @@ const data: NavData = {
     },
   ],
 };
-
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar {...props}>
@@ -144,6 +164,20 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                         <SidebarMenuSubButton asChild isActive={item.isActive}>
                           <a href={item.url}>{item.title}</a>
                         </SidebarMenuSubButton>
+                        {item.items?.length ? (
+                          <SidebarMenuSub>
+                            {item.items.map((item) => (
+                              <SidebarMenuSubItem key={item.title}>
+                                <SidebarMenuSubButton
+                                  asChild
+                                  isActive={item.isActive}
+                                >
+                                  <a href={item.url}>{item.title}</a>
+                                </SidebarMenuSubButton>
+                              </SidebarMenuSubItem>
+                            ))}
+                          </SidebarMenuSub>
+                        ) : null}
                       </SidebarMenuSubItem>
                     ))}
                   </SidebarMenuSub>

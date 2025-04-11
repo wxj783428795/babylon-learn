@@ -4,7 +4,14 @@ import { SidebarProvider, SidebarTrigger } from "./ui/sidebar";
 
 export default function Layout() {
   return (
-    <SidebarProvider className=" w-full h-full">
+    <SidebarProvider
+      className=" w-full h-full"
+      style={{
+        //@ts-ignore
+        "--sidebar-width": "20rem",
+        "--sidebar-width-mobile": "20rem",
+      }}
+    >
       <AppSidebar />
       <main className=" w-full h-full relative">
         <SidebarTrigger className=" absolute" />
